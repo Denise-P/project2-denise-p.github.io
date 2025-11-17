@@ -27,24 +27,29 @@ var pet_info = { name: "Cinnamoroll", weight: 22, happiness: 40, energy: 100 };
 //happy dog: 60 wags per min
 //upset dog: 20 wag per min or lower
 
+//animations/gifs/images are not diabled
 var isActionAnimationPlaying = false;
-
+//Stop the functions sounds
 function stopAllSounds() {
+  //select all audios
   const audio = document.querySelectorAll("audio");
+  //timer function
   audio.forEach((sound) => {
     sound.pause();
     sound.currentTime = 0;
   });
 }
-
+//play sound 
 function playSound(id, volume, durationMs) {
+  //stop other sounds
   stopAllSounds();
+  //get sounds
   const sound = document.getElementById(id);
   if (!sound) return;
   sound.volume = volume;
   sound.currentTime = 0;
   sound.play();
-
+//time sound
   setTimeout(function () {
     sound.pause();
     sound.currentTime = 0;
@@ -62,6 +67,7 @@ function clickedTreatButton() {
   } else {
     pet_info.energy += 5;
   }
+  //change image
   $(".pet-image").fadeOut(400, function () {
     $(this)
       .attr(
@@ -70,9 +76,13 @@ function clickedTreatButton() {
       )
       .fadeIn(600);
   });
+//play sound
   playSound("sound-treat", 1.0, 5000);
+  //play message
   popUp("Snack Time!");
+  //check stats
   checkAndUpdatePetInfoInHtml();
+  //timer for animations
   setTimeout(function () {
     isActionAnimationPlaying = false;
     emotions();
@@ -86,12 +96,17 @@ function clickedPlayButton() {
   pet_info.weight -= 1;
   //Decrease pet energy
   pet_info.energy -= 10;
+  //change image
   $(".pet-image").fadeOut(400, function () {
     $(this).attr("src", "images/plays.gif").fadeIn(600);
   });
+  //play sound
   playSound("sound-play", 0.5, 5000);
+  //play message
   popUp("Play Time!");
+  //check stats
   checkAndUpdatePetInfoInHtml();
+  //animation timer
   setTimeout(function () {
     isActionAnimationPlaying = true;
     emotions();
@@ -105,6 +120,7 @@ function clickedExerciseButton() {
   pet_info.weight -= 2;
   //Decrease pet energy
   pet_info.energy -= 20;
+  //change image
   $(".pet-image").fadeOut(400, function () {
     $(this)
       .attr(
@@ -113,9 +129,13 @@ function clickedExerciseButton() {
       )
       .fadeIn(600);
   });
+  //play sound
   playSound("sound-exercise", 0.4, 5000);
+  //play message
   popUp("Workout Time!");
+  //check stats
   checkAndUpdatePetInfoInHtml();
+  //animation timer
   setTimeout(function () {
     isActionAnimationPlaying = false;
     emotions();
@@ -132,24 +152,27 @@ function clickedSleepButton() {
       )
       .fadeIn(600);
   });
+  //play sound
   playSound("sound-sleep", 0.8, 5000);
+  //play message
   popUp("cinnamoroll is sleeping now.");
   // Reset energy to 100
   pet_info.energy = 100;
+  //check stats
   checkAndUpdatePetInfoInHtml();
+  //animation timer
   setTimeout(function () {
     isActionAnimationPlaying = true;
     emotions();
   }, 5000);
 }
-
+//disable all buttons but restart
 function setButtonsDisaabled(isDisabled) {
   $(".treat-button, .play-button, .exercise-button, .sleep-button").prop(
     "disabled",
     isDisabled
   );
-}
-
+} 
 function clickedRestartButton() {
   // Reset All
   pet_info.weight = 22;
@@ -159,6 +182,7 @@ function clickedRestartButton() {
   //enable buttons
   setButtonsDisaabled(false);
   $(".hide-button").hide();
+  //reset happy gif
   $(".pet-image").fadeOut(1000, function () {
     $(this)
       .attr(
@@ -170,11 +194,14 @@ function clickedRestartButton() {
 }
 
 function emotions() {
+  //check for gameOver
   if (isGameOver) return;
+  //time out emotion for emotional images
   setTimeout(function () {});
+  //check animation if they are playing
   if (isActionAnimationPlaying) return;
   if (pet_info.happiness >= 60) {
-    //excited
+    //Mood: excited
     $(".pet-image").fadeOut(1000, function () {
       $(this)
         .attr(
@@ -222,10 +249,12 @@ function emotions() {
   }
 }
 
+//game over is diabled
 var isGameOver = false;
 
 function gameOver() {
   isGameOver = true;
+  //stop all previous sounds
   stopAllSounds();
   //play runaway animation
   $(".pet-image").fadeOut(400, function () {
@@ -235,15 +264,19 @@ function gameOver() {
   setButtonsDisaabled(true);
   //make div appear
   $(".hide-button").show().fadeIn("slow");
+  //play sound
   playSound("sound-gameOver", 0.7, 5000);
+  //play image
   popUp("Your Cinnamoroll ran away!");
 }
 
+//check stats & update stats
 function checkAndUpdatePetInfoInHtml() {
   checkWeightAndHappinessBeforeUpdating();
   updatePetInfoInHtml();
 }
 
+//check stats
 function checkWeightAndHappinessBeforeUpdating() {
   // Add conditional so if weight is lower than zero.
   if (pet_info.weight < 10 || pet_info.weight > 50 || pet_info.happiness <= 0) {
@@ -254,7 +287,7 @@ function checkWeightAndHappinessBeforeUpdating() {
     if (pet_info.happiness > 100) {
       pet_info.happiness = 100;
     } else {
-      console.log("");
+      pet_info.happiness = pet_info.happiness;
     }
   }
 }
@@ -267,9 +300,12 @@ function updatePetInfoInHtml() {
   document.querySelector(".energy").textContent = pet_info.energy;
 }
 
+//no message
 let popupTimer = null;
 
+//Make message appear
 function popUp(message) {
+  //change message size
   var modWidth = 950;
 
   $(".message")
@@ -277,9 +313,10 @@ function popUp(message) {
     .addClass("mod")
     .find(".show-message")
     .text(message);
-
+//fade in message
   $(".message").fadeIn(500);
 
+  //message disappear
   setTimeout(() => {
     $(".message").fadeOut(500);
   }, 5000);
