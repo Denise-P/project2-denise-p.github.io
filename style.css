@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap");
+
+* {
+  box-sizing: border-box;
+  background-color: #b9e6fb;
+}
+
+body {
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: large;
+  margin: 0px 25px;
+}
+
+main {
+  display: block;
+  height: 175px;
+
+}
+
+#pet {
+  max-width: 950px;
+  margin: 25px auto;
+}
+
+header {
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+h1 {
+  font-weight: bold;
+  color: #000;
+  background-color: white;
+  padding: 20px;
+  border-radius: 50px;
+  border: 5px solid #9dcffa;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+p {
+  max-width: 950px;
+  font-size: 100px;
+  background-color: pink;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+footer {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+footer img {
+  display: block;
+  float: left;
+  width: 100%;
+  height: 300px;
+  margin: 0 auto;
+  padding: 0 auto;
+  
+}
+
+.pet-image {
+  width: 350px;
+  height: 300px;
+}
+
+.dashboard div,
+span,
+strong {
+  display: block;
+  background-color: #fcf9c5;
+}
+
+.hide-button {
+  display: block;
+  margin: 10px;
+}
+
+.pet-image-container {
+  float: left;
+  padding: 10px;
+}
+
+.dashboard {
+  float: left;
+  padding: 20px;
+  border: 10px solid #f8f676;
+  border-radius: 10px;
+  background-color: #fcf9c5;
+}
+
+.button-container {
+  margin-top: 20px;
+}
+
+.button-container button {
+  width: 100px;
+  margin-right: 10px;
+  text-align: center;
+  font-family: "Pixelify Sans", sans-serif;
+  display: inline-block;
+  border-radius: 50px;
+  font-size: 20px;
+  background-color: #d269ad;
+  border-color: #f1eb73;
+  cursor: pointer;
+  color: #fafafa;
+}
+
+.message {
+  display: none;
+  width: 950px;
+  height: 100px;
+  padding: 20px;
+  border: 2px solid #d0088a;
+  border-radius: 5px;
+  background-color: pink;
+  color: white;
+  float: left;
+}
+
+.show-message {
+  font-size: 30px;
+  background-color: pink;
+}
+
+.hide-button {
+  display: none;
+  float: left;
+  text-align: center;
+  border-radius: 10px;
+  border: 20px solid #d0088a;
+  padding: 20px;
+  width: 950px;
+  background-color: pink;
+}
+
+.hide-button button {
+  width: 100px;
+  margin-right: 10px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 50px;
+  font-size: 20px;
+  background-color: #d269ad;
+  border-color: #f1eb73;
+  cursor: pointer;
+  color: #fafafa;
+}

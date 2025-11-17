@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Your Giga Pet</title>
+    <meta name="description" content="A cool thing made with Glitch" />
+    <link
+      id="favicon"
+      rel="icon"
+      href="https://glitch.com/edit/favicon-app.ico"
+      type="image/x-icon"
+    />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>This is your Giga Pet</h1>
+    </header>
+
+    <main id="pet" role="main">
+      <section class="pet-image-container">
+        <!-- Replace pet image with your own pet image -->
+        <img
+          class="pet-image"
+          src="https://usagif.com/wp-content/uploads/gify/cinnamoroll-hi-gesture-usagif.gif"
+        />
+      </section>
+      <section class="dashboard">
+        <div class="status">
+          Name: <strong><span class="name"></span></strong>
+        </div>
+        <div class="status">
+          Weight: <strong><span class="weight"></span> pounds</strong>
+        </div>
+        <div class="status">
+          Happiness:
+          <strong><span class="happiness"></span> tail wags (per min)</strong>
+        </div>
+        <div class="status">
+          Energy:
+          <strong><span class="energy"></span> energy</strong>
+        </div>
+        <div id="show-stats" class="button-container">
+          <button class="treat-button">Treat</button>
+          <button class="play-button">Play</button>
+          <button class="exercise-button">Exercise</button>
+          <button class="sleep-button">Sleep</button>
+        </div>
+      </section>
+      <section>
+        <div class="message">
+          <strong><span class="show-message"></span></strong>
+        </div>
+      </section>
+      <section>
+        <div class="hide-button">
+          <p class="game">Game Over</p>
+          <button class="restart-button">Restart</button>
+        </div>
+      </section>
+      <section>
+        <audio id="sound-happy" src="sounds/happyEmotion.wav"></audio>
+        <audio id="sound-excited" src="sounds/excited.wav"></audio>
+        <audio id="sound-sad" src="sounds/sad.mp3"></audio>
+        <audio id="sound-treat" src="sounds/happy.mp3"></audio>
+        <audio id="sound-play" src="sounds/play.wav"></audio>
+        <audio id="sound-exercise" src="sounds/exercise.mp3"></audio>
+        <audio id="sound-sleep" src="sounds/sleep.mp3"></audio>
+        <audio id="sound-gameOver" src="sounds/gameOver.mp3"></audio>
+      </section>
+    </main>
+    <footer>
+      <img src="images/cloud2.png" alt="clouds">
+    </footer>
+
+    <!-- Your web-app is https, so your scripts need to be too -->
+  </body>
+</html>
